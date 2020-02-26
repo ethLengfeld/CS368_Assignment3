@@ -17,3 +17,10 @@
  * This class will demo the functions defined in the SummarizedGrades Library
 */
 #include "SummarizeGrades.h"
+
+
+
+int main() {
+
+    return 0;
+}

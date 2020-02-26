@@ -18,3 +18,26 @@
  * SummarizeGrades.h. 
 */
 #include "SummarizeGrades.h"
+
+
+void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numberOfAssignments, map<int,Name> &studentNames, map<int,vector<int>> &studentScores) {
+
+}
+
+
+
+void formatCaseOfNames(map<int,Name> &names) {
+
+}
+
+
+
+void computeTotalAndPercent(map<int,vector<int>> &scores, map<int,int> &total, map<int,float> &percent) {
+
+}
+
+
+
+void writeFormattedGrades(const string outputFilepath, map<int,Name> &names, map<int,int> &total, map<int,float> &percent) {
+
+}

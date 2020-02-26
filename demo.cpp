@@ -12,3 +12,8 @@
 // Online sources:   
 //
 ////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * This class will demo the functions defined in the SummarizedGrades Library
+*/
+#include "SummarizeGrades.h"

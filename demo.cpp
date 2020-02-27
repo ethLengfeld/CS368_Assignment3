@@ -24,6 +24,8 @@ int* numberOfStudents = new int;
 int* numberOfAssignments = new int;
 map<int,Name> studentNames;
 map<int,vector<int>> studentScores;
+map<int,int> total;
+map<int,float> percent;
 
 int main() {
     
@@ -32,6 +34,8 @@ int main() {
     SUMGRADES::readGradeFile(filePath,numberOfStudents,numberOfAssignments,studentNames,studentScores);
     
     SUMGRADES::formatCaseOfNames(studentNames);
+
+    SUMGRADES::computeTotalAndPercent(studentScores, total, percent);
 
 
     /*

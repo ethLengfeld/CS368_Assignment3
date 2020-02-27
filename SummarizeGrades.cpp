@@ -12,6 +12,7 @@
 // Online sources:   CS368-STLIntro slide
 //                   http://www.cplusplus.com/reference/string/string/
 //                   http://www.asciitable.com/
+//                   https://userweb.cs.txstate.edu/~br02/cs1428/SupportFiles/Programming/TypeCasting.htm
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -59,13 +60,9 @@ void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numbe
         inputFile >> currLine;
         inputFile >> *numberOfStudents;
 
-        cout << *numberOfStudents << endl;
-
         // skip word number_of_assignments
         inputFile >> currLine;
         inputFile >> *numberOfAssignments;
-
-        cout << *numberOfAssignments << endl;
 
         // skip \n
         getline(inputFile,currLine);
@@ -118,7 +115,21 @@ void formatCaseOfNames(map<int,Name> &names) {
 
 
 void computeTotalAndPercent(map<int,vector<int>> &scores, map<int,int> &total, map<int,float> &percent) {
+    int studentId;
+    for(auto &currStudent : scores) {
+        int totalScore = 0;
+        float stuPercent = 0;
+        studentId = currStudent.first;
 
+        for(auto &i : currStudent.second) {
+            totalScore += i;
+        }
+
+        stuPercent = ( static_cast<float>(totalScore) / static_cast<float>(currStudent.second.size() * 10) ) * 100;
+        cout << "student " << studentId << " had total score  = " << totalScore << " and percent = " << stuPercent << endl;
+        total[studentId] = totalScore;
+        percent[studentId] = stuPercent;
+    }
 }
 
 

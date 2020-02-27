@@ -11,7 +11,7 @@ SummarizeGrades.o: SummarizeGrades.cpp SummarizeGrades.h
 	$(CXX) $(CXXFLAGS) -c SummarizeGrades.cpp
 
 demo.o: demo.cpp SummarizeGrades.h
-	$(CXX) $(CXXFLAGS) -c SummarizeGrades.cpp
+	$(CXX) $(CXXFLAGS) -c demo.cpp
 
 clean:
 	-rm demo.o

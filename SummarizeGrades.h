@@ -21,7 +21,14 @@
  * 
 */
 
+// TODO delete iostream if nothing is printed out
+#include <iostream>
 #include <string>
+#include <map>
+#include <vector>
+#include <fstream>
+
+using namespace std;
 
 // TODO add comment for struct
 typedef struct Name

@@ -21,7 +21,36 @@
 
 
 void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numberOfAssignments, map<int,Name> &studentNames, map<int,vector<int>> &studentScores) {
+ifstream inputFile("unformatted_grades.txt");
 
+    if(inputFile.good()) {
+
+        string currLine;
+
+        // get number of students
+       // getline(inputFile, currLine, ' ');
+       // getline(inputFile, currLine, ' ');
+        //*numberOfStudents = stoi(currLine);
+
+        // TODO delete
+        //cout << *numberOfStudents << endl;
+
+       // getline(inputFile, currLine, ' ');
+        //getline(inputFile, currLine, ' ');
+        // *numberOfAssignments = stoi(currLine);
+
+        while (!inputFile.eof()){
+            getline(inputFile, currLine); 
+            cout << currLine << endl;
+        }
+
+
+
+        inputFile.close();
+
+    } else {
+        cout << "bad file! bad!" << endl;
+    }
 }
 
 

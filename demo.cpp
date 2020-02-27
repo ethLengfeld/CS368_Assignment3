@@ -9,7 +9,9 @@
 // CS Login:         lengfeld
 //
 //
-// Online sources:   
+// Online sources:   http://www.cplusplus.com/doc/tutorial/files/
+//                   http://www.cplusplus.com/reference/fstream/ifstream/
+//                   
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -18,9 +20,17 @@
 */
 #include "SummarizeGrades.h"
 
-
+int* numberOfStudents = new int;
+int* numberOfAssignments = new int;
+map<int,Name> studentNames;
+map<int,vector<int>> studentScores;
 
 int main() {
+    
+    string filePath = "unformatted_grades.txt";
+
+    SUMGRADES::readGradeFile(filePath,numberOfStudents,numberOfAssignments,studentNames,studentScores);
+    
 
     return 0;
 }

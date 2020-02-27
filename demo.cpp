@@ -31,6 +31,24 @@ int main() {
 
     SUMGRADES::readGradeFile(filePath,numberOfStudents,numberOfAssignments,studentNames,studentScores);
     
+    SUMGRADES::formatCaseOfNames(studentNames);
 
+
+    /*
+98861 BOB BARKER 8 5 9
+23091 bill kerman 6 9 10
+48701 bob kerman 10 10 10
+55335 jebediah kerman 5 6 5
+25825 val kerman 10 7 5
+70558 STEVE ROGERS 10 5 9
+89390 Luke Skywalker 5 7 10
+83937 TONY STARK 8 10 10
+18150 Darth Vader 10 6 6
+*/
+    int studentId = 70558;
+
+    for(auto j = 0; j < *numberOfAssignments; ++j) {
+         cout << "Assignment " << (j+1) << " for " << studentNames[studentId].firstName << ": " << studentScores[studentId][j] << endl;
+    }
     return 0;
 }

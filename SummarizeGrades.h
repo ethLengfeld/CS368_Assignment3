@@ -21,8 +21,6 @@
  * 
 */
 
-// TODO delete iostream if nothing is printed out
-#include <iostream>
 #include <string>
 #include <map>
 #include <vector>
@@ -31,7 +29,7 @@
 
 using namespace std;
 
-// TODO add comment for struct
+// hold a students first and last name in one struct
 typedef struct Name
 {
     string firstName;
@@ -39,13 +37,15 @@ typedef struct Name
 } Name;
 
 /**
+ * Take input file and fill data structures
+ * with relavent data read in from the input
+ * string
  * 
- * 
- * @param string inputFilepath - 
- * @param int* numberOfStudents - 
- * @param int* numberOfAssignments - 
- * @param map<int, Name> &studentNames - 
- * @param map<int, vector<int>> &studentScores - 
+ * @param string inputFilepath - file path
+ * @param int* numberOfStudents - no. students read from file
+ * @param int* numberOfAssignments - no. assignments read from file
+ * @param map<int, Name> &studentNames - student id paired with student
+ * @param map<int, vector<int>> &studentScores - student id pair scores
 */
 void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numberOfAssignments, map<int,Name> &studentNames, map<int,vector<int>> &studentScores);
 

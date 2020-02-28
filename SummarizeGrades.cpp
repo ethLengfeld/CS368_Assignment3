@@ -25,9 +25,13 @@
 
 
 /*
- * TODO comment private function
+ * This private helper function will
+ * take a string and properly case it
+ * First letter will be capital and following
+ * are lower case
  * 
- * 
+ * @param string name - name to format
+ * @return string - properly formatted string
  */
 string formatName(string name) {
     bool first = true;
@@ -67,7 +71,7 @@ void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numbe
         inputFile >> *numberOfAssignments;
 
         // skip \n
-        getline(inputFile,currLine);
+        inputFile >> currLine;
         // skip line 'student_number first_name last_name ...'
         getline(inputFile,currLine);
 
@@ -94,13 +98,9 @@ void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numbe
                 scores.push_back(currScore);
 
                 studentScores[studentId] = scores;
-                // TODO delete this
-                // cout << "Assignment " << (j+1) << " for " << studentNames[studentId].firstName << ": " << studentScores[studentId][j] << endl;
             }
         }
         inputFile.close();
-    } else {
-        cout << "bad file! bad!" << endl;
     }
 }
 
@@ -125,10 +125,6 @@ void computeTotalAndPercent(map<int,vector<int>> &scores, map<int,int> &total, m
         }
 
         stuPercent = ( static_cast<float>(totalScore) / static_cast<float>(currStudent.second.size() * 10) ) * 100;
-       
-       
-       // TODO delete
-       // cout << "student " << studentId << " had total score  = " << totalScore << " and percent = " << stuPercent << endl;
        
         total[studentId] = totalScore;
         percent[studentId] = stuPercent;
@@ -165,10 +161,6 @@ void writeFormattedGrades(const string outputFilepath, map<int,Name> &names, map
             outputFile << endl;
         }
 
-
-
     }
-
-
     outputFile.close();
 }

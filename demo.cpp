@@ -29,14 +29,16 @@ map<int,float> percent;
 
 int main() {
     
-    string filePath = "unformatted_grades.txt";
+    string inPath = "unformatted_grades.txt";
+    string outPath = "test_grades.txt";
 
-    SUMGRADES::readGradeFile(filePath,numberOfStudents,numberOfAssignments,studentNames,studentScores);
+    SUMGRADES::readGradeFile(inPath,numberOfStudents,numberOfAssignments,studentNames,studentScores);
     
     SUMGRADES::formatCaseOfNames(studentNames);
 
     SUMGRADES::computeTotalAndPercent(studentScores, total, percent);
 
+    SUMGRADES::writeFormattedGrades(outPath,studentNames, total, percent);
 
     /*
 98861 BOB BARKER 8 5 9
@@ -49,10 +51,10 @@ int main() {
 83937 TONY STARK 8 10 10
 18150 Darth Vader 10 6 6
 */
-    int studentId = 70558;
+    // int studentId = 70558;
 
-    for(auto j = 0; j < *numberOfAssignments; ++j) {
-         cout << "Assignment " << (j+1) << " for " << studentNames[studentId].firstName << ": " << studentScores[studentId][j] << endl;
-    }
+    // for(auto j = 0; j < *numberOfAssignments; ++j) {
+    //      cout << "Assignment " << (j+1) << " for " << studentNames[studentId].firstName << ": " << studentScores[studentId][j] << endl;
+    // }
     return 0;
 }

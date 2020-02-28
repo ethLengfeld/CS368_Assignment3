@@ -13,6 +13,7 @@
 //                   http://www.cplusplus.com/reference/string/string/
 //                   http://www.asciitable.com/
 //                   https://userweb.cs.txstate.edu/~br02/cs1428/SupportFiles/Programming/TypeCasting.htm
+//                   http://www.cplusplus.com/reference/ios/fixed/
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -47,6 +48,7 @@ string formatName(string name) {
     }
     return name;
 }
+
 
 void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numberOfAssignments, map<int,Name> &studentNames, map<int,vector<int>> &studentScores) {
     
@@ -96,13 +98,11 @@ void readGradeFile(const string inputFilepath, int *numberOfStudents, int *numbe
                 // cout << "Assignment " << (j+1) << " for " << studentNames[studentId].firstName << ": " << studentScores[studentId][j] << endl;
             }
         }
-
         inputFile.close();
     } else {
         cout << "bad file! bad!" << endl;
     }
 }
-
 
 
 void formatCaseOfNames(map<int,Name> &names) {
@@ -111,7 +111,6 @@ void formatCaseOfNames(map<int,Name> &names) {
         currStudent.second.lastName = formatName(currStudent.second.lastName);
     }
 }
-
 
 
 void computeTotalAndPercent(map<int,vector<int>> &scores, map<int,int> &total, map<int,float> &percent) {
@@ -126,7 +125,11 @@ void computeTotalAndPercent(map<int,vector<int>> &scores, map<int,int> &total, m
         }
 
         stuPercent = ( static_cast<float>(totalScore) / static_cast<float>(currStudent.second.size() * 10) ) * 100;
-        cout << "student " << studentId << " had total score  = " << totalScore << " and percent = " << stuPercent << endl;
+       
+       
+       // TODO delete
+       // cout << "student " << studentId << " had total score  = " << totalScore << " and percent = " << stuPercent << endl;
+       
         total[studentId] = totalScore;
         percent[studentId] = stuPercent;
     }
@@ -136,7 +139,36 @@ void computeTotalAndPercent(map<int,vector<int>> &scores, map<int,int> &total, m
 
 void writeFormattedGrades(const string outputFilepath, map<int,Name> &names, map<int,int> &total, map<int,float> &percent) {
 
+    ofstream outputFile(outputFilepath);
+
+    if(outputFile.good()) {
+
+        int studentId;
+        // int counter;
+        long startPos;
+        for(auto &currStudent : names) {
+            startPos = outputFile.tellp();
+
+            studentId = currStudent.first;
+
+            outputFile << currStudent.second.lastName << ", ";
+            outputFile << currStudent.second.firstName;
+
+            long tillPos = 22-(outputFile.tellp()-startPos);
+            outputFile << setw(tillPos);            
+            outputFile << total[studentId];
+
+            tillPos =  29-(outputFile.tellp()-startPos);
+            outputFile << setw(tillPos);
+            outputFile << fixed << setprecision(1) << percent[studentId];
+
+            outputFile << endl;
+        }
+
+
+
+    }
+
+
+    outputFile.close();
 }
-
-
-

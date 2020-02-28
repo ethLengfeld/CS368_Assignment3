@@ -1,5 +1,7 @@
 # Ethan Lengfeld
 # 9074020836
+# Makefile to compile Assignment 3 - Summarize Grades code
+
 CXX=g++
 CXXFLAGS = -Wall
 EXE = DemoSummarizeGrades

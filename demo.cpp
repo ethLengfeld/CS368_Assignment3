@@ -29,6 +29,7 @@ map<int,float> percent;
 
 int main() {
     
+    // files for testing
     string inPath = "unformatted_grades.txt";
     string outPath = "test_grades.txt";
 

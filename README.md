@@ -1,5 +1,6 @@
 Author: Ethan Lengfeld
 9074020836
+README file for Assignment 3 - Summarize Grades
 
 # Assignment 3: SummarizeGrades
 The files in Assignment 3 consist of demo.cpp which is used as a test class to demo 

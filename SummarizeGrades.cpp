@@ -140,8 +140,8 @@ void writeFormattedGrades(const string outputFilepath, map<int,Name> &names, map
     if(outputFile.good()) {
 
         int studentId;
-        // int counter;
         long startPos;
+        long tillPos;
         for(auto &currStudent : names) {
             startPos = outputFile.tellp();
 
@@ -150,10 +150,12 @@ void writeFormattedGrades(const string outputFilepath, map<int,Name> &names, map
             outputFile << currStudent.second.lastName << ", ";
             outputFile << currStudent.second.firstName;
 
-            long tillPos = 22-(outputFile.tellp()-startPos);
+            // write total score
+            tillPos = 22-(outputFile.tellp()-startPos);
             outputFile << setw(tillPos);            
             outputFile << total[studentId];
 
+            // write percent
             tillPos =  29-(outputFile.tellp()-startPos);
             outputFile << setw(tillPos);
             outputFile << fixed << setprecision(1) << percent[studentId];
